@@ -18,5 +18,14 @@
  */
 
 export default function convertBytesToHuman(bytes) {
-  // your solution goes here
+  if (typeof bytes !== 'number' || bytes < 0 || isNaN(bytes)) {
+    return false;
+  }
+  const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'];
+  if (bytes === 0) {
+    return '0 B';
+  }
+  const i = Math.floor(Math.log(bytes) / Math.log(1024));
+  const value = bytes / Math.pow(1024, i);
+  return `${parseFloat(value.toFixed(2))} ${sizes[i]}`;
 }
