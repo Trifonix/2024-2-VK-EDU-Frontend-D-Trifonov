@@ -35,6 +35,12 @@ test('Работает для больших чисел', () => {
   expect(convertBytesToHuman(1152921504606846976)).toBe('1 EB');
 });
 
+test('Обрабатывает значения меньше 1', () => {
+  expect(convertBytesToHuman(0.5)).toBe('0.5 B');
+  expect(convertBytesToHuman(0.25)).toBe('0.25 B');
+  expect(convertBytesToHuman(0.111)).toBe('0.11 B');
+});
+
 test('Возвращает false для неправильного типа данных', () => {
   expect(convertBytesToHuman(-1)).toBe(false);
   expect(convertBytesToHuman('string')).toBe(false);

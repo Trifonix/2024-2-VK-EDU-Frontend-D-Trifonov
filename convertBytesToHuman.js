@@ -25,6 +25,9 @@ export default function convertBytesToHuman(bytes) {
   if (bytes === 0) {
     return '0 B';
   }
+  if (bytes < 1) {
+    return `${parseFloat(bytes.toFixed(2))} B`;
+  }
   const unitIndex = Math.floor(Math.log(bytes) / Math.log(1024));
   const convertedValue = bytes / Math.pow(1024, unitIndex);
   return `${parseFloat(convertedValue.toFixed(2))} ${sizeUnits[unitIndex]}`;
