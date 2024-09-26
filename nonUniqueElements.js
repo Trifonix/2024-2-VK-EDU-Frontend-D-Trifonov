@@ -25,6 +25,8 @@ nonUniqueElements([10, 9, 10, 10, 9, 8]) == [10, 9, 10, 10, 9]
  */
 
 export default function nonUniqueElements(data) {
-  const goodNumbers = data.filter(item => data.indexOf(item) !== data.lastIndexOf(item));
+  const counts = {};
+  for (const item of data) counts[item] = (counts[item] || 0) + 1;
+  const goodNumbers = data.filter((item) => counts[item] > 1);
   return goodNumbers;
 }
