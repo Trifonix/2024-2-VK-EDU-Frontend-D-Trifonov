@@ -36,9 +36,9 @@ test('Работает для больших чисел', () => {
 });
 
 test('Обрабатывает значения меньше 1', () => {
-  expect(convertBytesToHuman(0.5)).toBe('0.5 B');
-  expect(convertBytesToHuman(0.25)).toBe('0.25 B');
-  expect(convertBytesToHuman(0.111)).toBe('0.11 B');
+  expect(convertBytesToHuman(0.5)).toBe('1 B');
+  expect(convertBytesToHuman(0.25)).toBe('1 B');
+  expect(convertBytesToHuman(0.111)).toBe('1 B');
 });
 
 test('Возвращает false для неправильного типа данных', () => {

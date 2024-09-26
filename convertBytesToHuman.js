@@ -21,6 +21,7 @@ export default function convertBytesToHuman(bytes) {
   if (typeof bytes !== 'number' || bytes < 0 || isNaN(bytes)) {
     return false;
   }
+  bytes = (bytes < 1 && bytes !== 0) ? 1 : Math.floor(bytes);
   const sizeUnits = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'];
   if (bytes === 0) {
     return '0 B';
